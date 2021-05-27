@@ -20,6 +20,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import dao.MovieDao;
+import dao.MovieDetailDao;
 
 /**
  * 
@@ -204,6 +205,7 @@ public class NaverApi {
 					
 					Class.forName(JDBC_DRIVER);
 					conn = DriverManager.getConnection(DB_URL,USERNAME,PASSWORD);
+					
 					
 					
 					String insertSql ="INSERT INTO movie VALUES(NULL, ?,?)";

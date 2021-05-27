@@ -110,6 +110,7 @@ public class MovieDetailGUI extends CustomUI  {
 		});
 		
 		frame.setSize(426, 779);
+		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		frame.setVisible(true);
 	}

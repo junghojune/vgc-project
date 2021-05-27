@@ -107,6 +107,7 @@ public class SelectDateGUI extends JFrame{
 		frame.setContentPane(backgroundPanel);
 		frame.setTitle("");
 		frame.setSize(426,779);
+		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		frame.setVisible(true);
 	}

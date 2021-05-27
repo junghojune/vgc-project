@@ -148,39 +148,68 @@ public class SeatGUI extends JFrame {
 					}
 
 					JOptionPane.showMessageDialog(frame, "예약을 완료 하시겠습니까?", "예약확인", JOptionPane.YES_NO_OPTION);
-				} else {
+					conn = DBConnection.getConnection();
+					
+					try {
+//						user_Id, movie_Id, reserve_Date, reserve_Cnt, seat
+						pstmt = conn.prepareStatement(SQL);
+						pstmt.setString(1, userId);
+						pstmt.setInt(2, movieId);
+						pstmt.setString(3, reserveDate);
+						pstmt.setInt(4, selectedCnt);
+						pstmt.setString(5, selectedSeats);
+
+						pstmt.execute();
+
+					} catch (SQLException e2) {
+						e2.printStackTrace();
+					} finally {
+						try {
+							if (pstmt != null) {
+								pstmt.close();
+							}
+							if (conn != null) {
+								conn.close();
+							}
+						} catch (Exception e3) {
+							e3.printStackTrace();
+						}
+					}
+					new ResultGUI(userId, selectedSeats, movieId);
+					frame.dispose();
+				 }else {
 					JOptionPane.showMessageDialog(frame, "선택한 인원 " + peopleCnt + "명만큼의 좌석을 선택하지 않았습니다.", "오류",
 							JOptionPane.ERROR_MESSAGE);
 				}
-				conn = DBConnection.getConnection();
-
-				try {
-//					user_Id, movie_Id, reserve_Date, reserve_Cnt, seat
-					pstmt = conn.prepareStatement(SQL);
-					pstmt.setString(1, userId);
-					pstmt.setInt(2, movieId);
-					pstmt.setString(3, reserveDate);
-					pstmt.setInt(4, selectedCnt);
-					pstmt.setString(5, selectedSeats);
-
-					pstmt.execute();
-
-				} catch (SQLException e2) {
-					e2.printStackTrace();
-				} finally {
-					try {
-						if (pstmt != null) {
-							pstmt.close();
-						}
-						if (conn != null) {
-							conn.close();
-						}
-					} catch (Exception e3) {
-						e3.printStackTrace();
-					}
-				}
-				new ResultGUI(userId, selectedSeats, movieId);
-				frame.dispose();
+//				conn = DBConnection.getConnection();
+//
+//				try {
+////					user_Id, movie_Id, reserve_Date, reserve_Cnt, seat
+//					pstmt = conn.prepareStatement(SQL);
+//					pstmt.setString(1, userId);
+//					pstmt.setInt(2, movieId);
+//					pstmt.setString(3, reserveDate);
+//					pstmt.setInt(4, selectedCnt);
+//					pstmt.setString(5, selectedSeats);
+//
+//					pstmt.execute();
+//
+//				} catch (SQLException e2) {
+//					e2.printStackTrace();
+//				} finally {
+//					try {
+//						if (pstmt != null) {
+//							pstmt.close();
+//						}
+//						if (conn != null) {
+//							conn.close();
+//						}
+//					} catch (Exception e3) {
+//						e3.printStackTrace();
+//					}
+//				}
+//				new ResultGUI(userId, selectedSeats, movieId);
+//				frame.dispose();
 			}
 
 		});

@@ -47,8 +47,7 @@ public class LoginGUI {
 
 	/**
 	 * <p>
-	 * 영화예매 시스템의 첫 화면인 로그인 창에서 Api를 이용해 영화목록을 불러온다.<br/>
-	 * 아이디와 비밀번호를 이용해 로그인을 한다.(1.엔터를 치는 방법, 2.버튼을 누르는 방법)<br/>
+	 * 영화예매 시스템의 첫 화면인 로그인 창에서 Api를 이tjhoho 치는 방법, 2.버튼을 누르는 방법)<br/>
 	 * db를 이용해 회원 유무를 판별하여 접속 여부를 확인한다.<br/>
 	 * 접속 가능하다면 영화예매 창으로 넘어간다.
 	 * </p>
@@ -114,6 +113,7 @@ public class LoginGUI {
 		});
 		
 		frame.setSize(426, 779);
+		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		frame.setVisible(true);
 	}

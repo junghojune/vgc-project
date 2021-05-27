@@ -110,9 +110,9 @@ public class JoinGUI {
 				
 				
 				
-				boolean checkId = false;
+				
 				UserDao dao = UserDao.getInstance();
-				checkId = dao.CheckId(userid);
+				boolean checkId = dao.CheckId(userid);
 				
 				if(checkId == true) {
 					JOptionPane.showMessageDialog(null, "이미 사용중인 아이디 입니다.\n"
@@ -169,6 +169,7 @@ public class JoinGUI {
 		});
 
 		frame.setSize(426, 779);
+		frame.setLocationRelativeTo(null);
 		frame.setResizable(false);
 		frame.setVisible(true);
 	}

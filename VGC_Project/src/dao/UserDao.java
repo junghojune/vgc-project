@@ -70,16 +70,17 @@ public class UserDao {
 	public boolean CheckId(String userId) {
 		String sql = "SELECT * FROM user WHERE USER_ID = ?";
 		conn = DBConnection.getConnection();
-		
+		boolean checkid = false;
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userId);
-			checkId = pstmt.execute();
-			return checkId;
+			rs = pstmt.executeQuery();
+			checkid = rs.next();
+			return checkid;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return checkId;
+		return checkid;
 	}
 	
 }
