@@ -32,6 +32,16 @@ CREATE TABLE if not exists reserve(
     FOREIGN KEY(movie_Id) REFERENCES movie(id)
 );
 
+CREATE TABLE if not exists movie_Info(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    movie_id INT NOT NULL,
+    Director VARCHAR(10),
+    Actor VARCHAR(300),
+    Grade VARCHAR(10),
+    poster VARCHAR(100),
+    FOREIGN KEY(movie_Id) REFERENCES movie(id)
+);
+
 INSERT INTO seat VALUES (NULL,'A',5,5);
 
 
