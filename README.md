@@ -1,6 +1,4 @@
 # vgc-project
-메가 IT아카데미 미니 java프로젝트
-
 # VGC Program
 
 ### 1. 프로젝트 소개
